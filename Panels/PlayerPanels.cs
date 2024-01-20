@@ -17,7 +17,7 @@ namespace MyBiz.Panels
             foreach (Bizs biz in Nova.biz.bizs)
             {
                 bool isOpen = false;
-                List<Player> players = Nova.server.GetAllInGamePlayers().Where(p => p.biz.Id == biz.Id).ToList();
+                List<Player> players = Nova.server.GetAllInGamePlayers().Where(p => p.biz != null && p.biz.Id == biz.Id).ToList();
                 foreach (Player currPlayer in players)
                 {
                     if (currPlayer.serviceMetier)
