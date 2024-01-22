@@ -26,7 +26,7 @@ namespace MyBiz.Panels
                         break;
                     }
                 }
-                panel.AddTabLine($"{biz.BizName}", $"{(!isOpen ? $"<color={PanelManager.Colors[NotificationManager.Type.Error]}>fermé</color>" : $"<color={PanelManager.Colors[NotificationManager.Type.Success]}>ouvert</color>")}", -1, ui => PanelManager.NextPanel(player, ui, () => BizDetails(player, biz)));
+                panel.AddTabLine($"{biz.BizName}", $"{(!isOpen ? $"<color={PanelManager.Colors[NotificationManager.Type.Error]}>inactif</color>" : $"<color={PanelManager.Colors[NotificationManager.Type.Success]}>actif</color>")}", -1, ui => PanelManager.NextPanel(player, ui, () => BizDetails(player, biz)));
             }
 
             panel.AddButton("Voir", ui => ui.SelectTab()) ;
@@ -138,7 +138,7 @@ namespace MyBiz.Panels
 
         public static void EditBizContact(Player player, Bizs biz)
         {
-            UIPanel panel = new UIPanel("MyBiz", UIPanel.PanelType.Tab).SetTitle("Configuration société");
+            UIPanel panel = new UIPanel("MyBiz", UIPanel.PanelType.Input).SetTitle("Configuration société");
 
             panel.inputPlaceholder = "Informations de contact";
 
